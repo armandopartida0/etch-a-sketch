@@ -1,3 +1,7 @@
+:root {
+    --square-size: 0;
+}
+
 /* Styling for the header and small text */
 .etch-top {
     display: flex;
@@ -7,11 +11,9 @@
 
 /* Styling for grid div container */
 .grid-container {
-    display: grid;
-    justify-content: center;
-    grid-template-columns: repeat(16, 2em);
-    grid-template-rows: repeat(16, 2em);
-    gap: 0.2em;
+    display: flex;
+    width: 30%;
+    flex-wrap: wrap;
 }
 
 /* Bottom styling */
@@ -29,4 +31,6 @@
 /* Styling for each grid square */
 .square {
     background-color: black;
+    width: var(--square-size);
+    height: var(--square-size);
 }

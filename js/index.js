@@ -1,16 +1,8 @@
-// Grab our grid container node
-const gridContainer = document.querySelector('.grid-container');
+// Create grid container fragment
+let gridContainer = document.querySelector('.grid-container');
 
 // Create our grid layout on page load. 16x16 intial size
 generateGrid(16);
-
-// Add event listeners to squares to change color
-const squares = document.querySelectorAll('.square');
-squares.forEach(item => {
-    item.addEventListener('mouseover', function(e) {
-        e.target.style.backgroundColor = randomColor();
-    });
-});
 
 // Add event listener to button and check for user input for new grid
 const resetBtn = document.querySelector('.etch-bottom-btn');
@@ -27,21 +19,39 @@ resetBtn.addEventListener('click', () => {
         }
 
         // Destroy grid and generate new grid
-        // TODO
+        cleanGrid();
+        generateGrid(answer);
     }
 });
+
+/**
+ * Function to remove all child nodes from grid-container
+ */
+function cleanGrid() {
+    while(gridContainer.firstChild) {
+        gridContainer.removeChild(gridContainer.firstChild);
+    }
+}
 
 /**
  * Function to generate a grid
  * @param {number} n Specified number to generate a n x n grid
  */
 function generateGrid(n) {
-    for(let i = 0; i < n; i++) {
-        for(let j = 0; j < n; j++) {
-            const div = document.createElement('div');
-            div.className = 'square';
-            gridContainer.append(div);
-        }
+    for(let i = 0; i < n*n; i++) {
+        // Create square divs and add event listener
+        const squareDiv = document.createElement('div');
+        squareDiv.className = 'square';
+        squareDiv.addEventListener('mouseover', function(e) {
+            e.target.style.backgroundColor = randomColor();
+        });
+        gridContainer.append(squareDiv);
+
+        // Make sure squares are sized properly
+        document.documentElement.style.setProperty(
+            '--square-size', 
+            gridContainer.clientWidth / n + "px"
+        );
     }
 }
 

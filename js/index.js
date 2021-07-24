@@ -1,4 +1,4 @@
-// Create grid container fragment
+// Grab grid container node
 let gridContainer = document.querySelector('.grid-container');
 
 // Create our grid layout on page load. 16x16 intial size

@@ -1,6 +1,9 @@
 // Grab grid container node
 let gridContainer = document.querySelector('.grid-container');
 
+// Create Document Fragment for fast dynamic grid size
+let fragment = document.createDocumentFragment();
+
 // Create our grid layout on page load. 16x16 intial size
 generateGrid(16);
 
@@ -45,7 +48,8 @@ function generateGrid(n) {
         squareDiv.addEventListener('mouseover', function(e) {
             e.target.style.backgroundColor = randomColor();
         });
-        gridContainer.append(squareDiv);
+
+        fragment.append(squareDiv);
 
         // Make sure squares are sized properly
         document.documentElement.style.setProperty(
@@ -53,6 +57,9 @@ function generateGrid(n) {
             gridContainer.clientWidth / n + "px"
         );
     }
+
+    // Append fragment
+    gridContainer.appendChild(fragment);
 }
 
 /**

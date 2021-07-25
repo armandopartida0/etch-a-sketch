@@ -9,8 +9,14 @@
     align-items: center;
 }
 
-/* Styling for grid div container */
+/* Div container containing the grid div */
 .grid-container {
+    display: flex;
+    justify-content: center;
+}
+
+/* Styling for grid div */
+.grid {
     display: flex;
     width: 30%;
     flex-wrap: wrap;

@@ -1,5 +1,5 @@
 // Grab grid container node
-let gridContainer = document.querySelector('.grid-container');
+let gridContainer = document.querySelector('.grid');
 
 // Create Document Fragment for fast dynamic grid size
 let fragment = document.createDocumentFragment();

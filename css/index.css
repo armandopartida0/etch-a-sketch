@@ -2,6 +2,12 @@
     --square-size: 0;
 }
 
+body {
+    font-family: 'Lobster', cursive;
+    background: rgb(63,94,251);
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+}
+
 /* Styling for the header and small text */
 .etch-top {
     display: flex;
@@ -32,6 +38,14 @@
 .etch-bottom-btn {
     width: 10em;
     height: 4em;
+    border-radius: 2em;
+    text-decoration: none;
+    background-color: #e6497b;
+    border: none;
+}
+
+.etch-bottom-btn:hover {
+    background-color: #b3395f;
 }
 
 /* Styling for each grid square */
